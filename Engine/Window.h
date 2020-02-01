@@ -7,8 +7,7 @@ public:
 	void GenerateWindow();
 	bool IsWindowClosed();
 	void Update();
+	~Window();
 
 	static GLFWwindow* s_window;
-private:
-	~Window();
 };

@@ -1,12 +1,15 @@
 #include "DemoGameLayer.h"
-#include "../Engine/AssetDatabase.h"
 #include "../Engine/Window.h"
 #include "../Engine/Time.h"
+#include "../Engine/AssetDatabase.h"
 void DemoGameLayer::Start()
 {
 	camera = new Camera();
 	cameraController = new CameraController(camera);
 	gameObject = new GameObject();
+
+	light = new Light();
+
 	auto pack = AssetImporter::Load("Assets/Zombie9.obj");
 	gameObject->render = pack;
 	
@@ -34,9 +37,8 @@ void DemoGameLayer::Update()
 	glEnableVertexAttribArray(1);
 	glEnableVertexAttribArray(2);
 	glActiveTexture(GL_TEXTURE0);
-	library->SetMatrix4("Model", gameObject->transform.GetTransformationMatrix());
-	library->SetMatrix4("View", camera->GetViewMatrix());
-	library->SetMatrix4("Projection", camera->GetProjectionMatrix());
+	SetMVP();
+	SetLightData();
 	glBindTexture(GL_TEXTURE_2D, gameObject->render->material->texture->texture_id);
 	glDrawElements(GL_TRIANGLES, gameObject->render->mesh->vertices_size, GL_UNSIGNED_INT, 0);
 	glDisableVertexAttribArray(0);

@@ -95,7 +95,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;GLEW_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)DemoGame\vendor\glfw\include;$(SolutionDir)DemoGame\vendor\glew\include;$(SolutionDir)DemoGame\vendor\glm;$(SolutionDir)DemoGame\vendor\stb_image;$(SolutionDir)DemoGame\vendor\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)DemoGame\vendor\glfw\include;$(SolutionDir)DemoGame\vendor\glew\include;$(SolutionDir)DemoGame\vendor\glm;$(SolutionDir)DemoGame\vendor\stb_image;$(SolutionDir)DemoGame\vendor\assimp\include;$(SolutionDir)DemoGame\vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalUsingDirectories>$(SolutionDir)DemoGame\vendor\glfw\lib;%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
@@ -129,7 +129,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;GLEW_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)DemoGame\vendor\glfw\include;$(SolutionDir)DemoGame\vendor\glew\include;$(SolutionDir)DemoGame\vendor\glm;$(SolutionDir)DemoGame\vendor\stb_image;$(SolutionDir)DemoGame\vendor\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)DemoGame\vendor\glfw\include;$(SolutionDir)DemoGame\vendor\glew\include;$(SolutionDir)DemoGame\vendor\glm;$(SolutionDir)DemoGame\vendor\stb_image;$(SolutionDir)DemoGame\vendor\assimp\include;$(SolutionDir)DemoGame\vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalUsingDirectories>$(SolutionDir)DemoGame\vendor\glfw\lib;%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
@@ -161,6 +161,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DemoGame.cpp" />
+    <ClCompile Include="Engine\AssetDatabase.cpp" />
     <ClCompile Include="Engine\AssetImporter.cpp" />
     <ClCompile Include="Engine\Buffer.cpp" />
     <ClCompile Include="Engine\Shader.cpp" />
@@ -168,13 +169,21 @@
     <ClCompile Include="Engine\VertexArrayObject.cpp" />
     <ClCompile Include="Engine\Window.cpp" />
     <ClCompile Include="Game\DemoGameLayer.cpp" />
+    <ClCompile Include="Game\GameUI.cpp" />
     <ClCompile Include="Utils\TextUtils.cpp" />
+    <ClCompile Include="vendor\imgui\imgui.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_demo.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_draw.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\AssetDatabase.h" />
     <ClInclude Include="Engine\AssetImporter.h" />
     <ClInclude Include="Engine\Buffer.h" />
     <ClInclude Include="Engine\Components\Camera.h" />
+    <ClInclude Include="Engine\Components\Light.h" />
     <ClInclude Include="Engine\Components\Transform.h" />
     <ClInclude Include="Engine\GameLayer.h" />
     <ClInclude Include="Engine\GameObject.h" />
@@ -182,15 +191,26 @@
     <ClInclude Include="Engine\Material.h" />
     <ClInclude Include="Engine\Mesh.h" />
     <ClInclude Include="Engine\RenderObject.h" />
+    <ClInclude Include="Engine\SceneSettings.h" />
     <ClInclude Include="Engine\Shader.h" />
     <ClInclude Include="Engine\Texture.h" />
     <ClInclude Include="Engine\Time.h" />
+    <ClInclude Include="Engine\UILayer.h" />
     <ClInclude Include="Engine\VertexArrayObject.h" />
     <ClInclude Include="Engine\Window.h" />
     <ClInclude Include="Game\CameraController.h" />
     <ClInclude Include="Game\DemoGameLayer.h" />
+    <ClInclude Include="Game\GameUI.h" />
     <ClInclude Include="Utils\Macro.h" />
     <ClInclude Include="Utils\TextUtils.h" />
+    <ClInclude Include="vendor\imgui\imconfig.h" />
+    <ClInclude Include="vendor\imgui\imgui.h" />
+    <ClInclude Include="vendor\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="vendor\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="vendor\imgui\imgui_internal.h" />
+    <ClInclude Include="vendor\imgui\imstb_rectpack.h" />
+    <ClInclude Include="vendor\imgui\imstb_textedit.h" />
+    <ClInclude Include="vendor\imgui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\e.jpg" />
@@ -198,6 +218,9 @@
   <ItemGroup>
     <None Include="Shaders\fragmentShader.fp" />
     <None Include="Shaders\vertexShader.vp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\..\..\..\Roboto-Regular.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

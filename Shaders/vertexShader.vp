@@ -1,14 +1,27 @@
 #version 400 core
 
 in vec3 position;
+in vec3 normal;
 in vec2 texCoord;
 
 uniform mat4 Model;
 uniform mat4 View;
 uniform mat4 Projection;
+
+uniform vec3 LightPosition;
+
 out vec2 pass_textureCoords;
+out vec3 vertexNormal;
+out vec3 lightVector;
+out vec3 camVector;
 
 void main(void){
-	gl_Position =Projection * View*  Model * vec4(position,1.0);
+	vec4 worldPos = Model * vec4(position,1.0);
+	vec4 viewSpace = View*  worldPos;
+	gl_Position = Projection * viewSpace;
+	vertexNormal = (Model * vec4(normal,0.0)).xyz;
+	lightVector = LightPosition - vertexNormal;
+	vec4 camPos = inverse(View) * vec4(0,0,0,1);
+	camVector = normalize(camPos.xyz-worldPos.xyz);
 	pass_textureCoords = texCoord;
 }

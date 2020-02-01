@@ -3,6 +3,7 @@
 GLFWwindow*  Window::s_window;
 Window::~Window()
 {
+	glfwDestroyWindow(s_window);
 	glfwTerminate();
 }
 
