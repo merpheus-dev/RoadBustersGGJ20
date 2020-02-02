@@ -66,6 +66,9 @@
     <ClCompile Include="Engine\AssetDatabase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Events\EventDispatcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Window.h">
@@ -164,6 +167,15 @@
     <ClInclude Include="Game\GameUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\Events\EventDispatcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Events\Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\RoadMovementPair.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\e.jpg">
@@ -173,8 +185,5 @@
   <ItemGroup>
     <None Include="Shaders\vertexShader.vp" />
     <None Include="Shaders\fragmentShader.fp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="..\..\..\..\Roboto-Regular.ttf" />
   </ItemGroup>
 </Project>

@@ -29,6 +29,18 @@ public:
 		if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) {
 			m_camera->transform.Position.y += Time::deltaTime;
 		}
+		if (glfwGetKey(window, GLFW_KEY_KP_4) == GLFW_PRESS) {
+			m_camera->transform.Rotation.y -= Time::deltaTime*100;
+		}
+		if (glfwGetKey(window, GLFW_KEY_KP_6) == GLFW_PRESS) {
+			m_camera->transform.Rotation.y += Time::deltaTime*100;
+		}
+		if (glfwGetKey(window, GLFW_KEY_KP_2) == GLFW_PRESS) {
+			m_camera->fov+= Time::deltaTime * 100;
+		}
+		if (glfwGetKey(window, GLFW_KEY_KP_8) == GLFW_PRESS) {
+			m_camera->fov -= Time::deltaTime * 100;
+		}
 	}
 private:
 	Camera* m_camera;

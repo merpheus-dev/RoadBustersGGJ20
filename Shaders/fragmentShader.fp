@@ -12,6 +12,7 @@ uniform vec3 LightColor;
 uniform float AmbientIntensity;
 
 uniform float MaterialShininess;
+uniform float GlossDamping;
 uniform vec3 ReflectionColor;
 
 void main(void){
@@ -21,7 +22,6 @@ void main(void){
 	vec3 diffuseColor = LightColor * lambertian;
 	vec3 reflectDir = reflect(-lightDir,vertexNormal);
 	float specularReflectionAngle = max(dot(reflectDir,camVector),0.0);
-	float specular = pow(specularReflectionAngle,MaterialShininess/4.0);
-
-	output_color = vec4(diffuseColor,1.0) * texture(textureSampler,pass_textureCoords)+vec4(ReflectionColor*specular,1.0);
+	vec3 specular = clamp(pow(specularReflectionAngle,GlossDamping),0,1) *ReflectionColor * MaterialShininess;
+	output_color = vec4(diffuseColor,1.0) * texture(textureSampler,pass_textureCoords)+vec4(specular,1.0);
 }

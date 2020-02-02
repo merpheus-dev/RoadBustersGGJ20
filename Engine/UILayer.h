@@ -12,9 +12,9 @@ public:
 		ImGui_ImplGlfw_InitForOpenGL(Window::s_window, true);
 		ImGui_ImplOpenGL3_Init((char*)glGetString(GL_NUM_SHADING_LANGUAGE_VERSIONS));
 		ImGui::StyleColorsDark();
-		//ImGuiIO io = ImGui::GetIO();
-		//m_font = io.Fonts->AddFontFromFileTTF("Assets/Roboto-Regular.ttf", 120.0);
-		//Start();
+		ImGuiIO io = ImGui::GetIO();
+		m_font = io.Fonts->AddFontFromFileTTF("Assets/Roboto-Regular.ttf", 120.0);
+		Start();
 	}
 
 	void LoopBegin() {

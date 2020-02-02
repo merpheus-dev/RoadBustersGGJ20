@@ -6,4 +6,5 @@ class GameUI :public UILayer {
 	virtual void Start() override;
 	virtual void Render() override;
 	Texture* m_texture;
+	Texture* m_texture2;
 };

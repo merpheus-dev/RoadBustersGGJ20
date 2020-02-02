@@ -164,6 +164,7 @@
     <ClCompile Include="Engine\AssetDatabase.cpp" />
     <ClCompile Include="Engine\AssetImporter.cpp" />
     <ClCompile Include="Engine\Buffer.cpp" />
+    <ClCompile Include="Engine\Events\EventDispatcher.cpp" />
     <ClCompile Include="Engine\Shader.cpp" />
     <ClCompile Include="Engine\Time.cpp" />
     <ClCompile Include="Engine\VertexArrayObject.cpp" />
@@ -185,6 +186,8 @@
     <ClInclude Include="Engine\Components\Camera.h" />
     <ClInclude Include="Engine\Components\Light.h" />
     <ClInclude Include="Engine\Components\Transform.h" />
+    <ClInclude Include="Engine\Events\Event.h" />
+    <ClInclude Include="Engine\Events\EventDispatcher.h" />
     <ClInclude Include="Engine\GameLayer.h" />
     <ClInclude Include="Engine\GameObject.h" />
     <ClInclude Include="Engine\LavaEngineSubset.h" />
@@ -201,6 +204,7 @@
     <ClInclude Include="Game\CameraController.h" />
     <ClInclude Include="Game\DemoGameLayer.h" />
     <ClInclude Include="Game\GameUI.h" />
+    <ClInclude Include="Game\RoadMovementPair.h" />
     <ClInclude Include="Utils\Macro.h" />
     <ClInclude Include="Utils\TextUtils.h" />
     <ClInclude Include="vendor\imgui\imconfig.h" />
@@ -218,9 +222,6 @@
   <ItemGroup>
     <None Include="Shaders\fragmentShader.fp" />
     <None Include="Shaders\vertexShader.vp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="..\..\..\..\Roboto-Regular.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
