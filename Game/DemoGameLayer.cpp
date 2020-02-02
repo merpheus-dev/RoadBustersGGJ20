@@ -65,13 +65,24 @@ void DemoGameLayer::ConstructScene()
 	light->Position = glm::vec3(2, 2, 2);
 	light->Color = glm::vec3(255 / 255., 246 / 255., 212 / 255.) * 2.f;
 
-	auto terrain = Spawn("Assets/terrain.obj", "Assets/terrain.jpg");
+	auto terrain = Spawn("Assets/terrain2.obj", "Assets/terrain.jpg");
 	terrain->transform.Position.y = -.3;
 	terrain->transform.Scale = glm::vec3(.5);
+
+	for (int j = 0; j < 30; j++) {
+		std::string id = "Assets/BuildingB" + std::to_string(GetRandom(1, 9)) + ".obj";
+		auto building = Spawn(id.c_str(), "Assets/buildingAtlas.jpg");
+		building->transform.Position.z = (GetRandom(-10, 10) * 4) / 10.;
+		building->transform.Position.x = (GetRandom(-10, -2)*4) / 10.;
+	}
+
 
 	std::string levelData = TextUtils::ReadText("Assets/Level1.lavascene");
 	ParseLevelData(levelData);
 	SpawnCars();
+	//auto* plane = Spawn("Assets/plane.obj", "Assets/buildingAtlas.jpg");
+	//plane->transform.Scale *= .3f;
+	//plane->transform.Rotation.y = 180.f;
 }
 
 GameObject* DemoGameLayer::Spawn(const char* meshFile, const char* textureFile) {
@@ -106,7 +117,7 @@ void DemoGameLayer::Update()
 	MoveActiveRoad();
 	Time::Update();
 	s_timeCounter += Time::deltaTime;
-	if (s_timeCounter > 5) {
+	if (s_timeCounter > 20) {
 		
 		if (!carSpawned) {
 			carSpawned = true;

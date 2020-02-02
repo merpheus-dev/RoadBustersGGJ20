@@ -83,11 +83,11 @@ public:
 
 	void SpawnRoad() {
 		std::vector<const char*> roadMeshes;
-		roadMeshes.push_back("Assets/FlatRoad1.obj");
-		roadMeshes.push_back("Assets/FlatRoad2.obj");
-		roadMeshes.push_back("Assets/FlatRoad3.obj");
-		roadMeshes.push_back("Assets/FlatRoad4.obj");
-		roadMeshes.push_back("Assets/FlatRoad5.obj");
+		//roadMeshes.push_back("Assets/FlatRoad1.obj");
+		//roadMeshes.push_back("Assets/FlatRoad2.obj");
+		//roadMeshes.push_back("Assets/FlatRoad3.obj");
+		//roadMeshes.push_back("Assets/FlatRoad4.obj");
+		//roadMeshes.push_back("Assets/FlatRoad5.obj");
 		roadMeshes.push_back("Assets/FlatRoad.obj");
 		m_activeRoadIndex = GetRandom(0, roadMeshes.size() - 1);
 		m_activeRoad = Spawn(roadMeshes[m_activeRoadIndex], "Assets/Road.jpg");
